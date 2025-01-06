@@ -1,6 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        function checkCookieConsent() {
+            return localStorage.getItem('cookieConsent');
+        }
+        
+        function initializeGA() {
+            // Google Analytics code
+            const script1 = document.createElement('script');
+            script1.async = true;
+            script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-B6GHQZ3K1R';
+            document.head.appendChild(script1);
+        
+            const script2 = document.createElement('script');
+            script2.text = `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-B6GHQZ3K1R');
+            `;
+            document.head.appendChild(script2);
+        }
+        
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieConsent').style.display = 'none';
+            initializeGA();
+        }
+        
+        function declineCookies() {
+            localStorage.setItem('cookieConsent', 'declined');
+            document.getElementById('cookieConsent').style.display = 'none';
+        }
+        
+        // Check consent on page load
+        window.addEventListener('load', function() {
+            const consent = checkCookieConsent();
+            if (consent === 'accepted') {
+                initializeGA();
+            } else if (!consent) {
+                document.getElementById('cookieConsent').style.display = 'block';
+            }
+        });
+        </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tomi Akinrinmade's Portfolio</title>
@@ -171,6 +214,61 @@
                 padding: 0 0.5rem;
             }
         }
+        .cookie-consent {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(247, 246, 244, 0.98);
+            padding: 1rem;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .cookie-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .cookie-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .accept-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .decline-btn {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+
+        .cookie-btn:hover {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .cookie-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -192,7 +290,7 @@
             <!-- Statsball Section -->
             <section class="section">
                 <h2 class="section-title">Statsball</h2>
-                <details open>
+                <details>
                   <summary>Introduction</summary>
                   <div class="details-content">
                       <p>
@@ -216,7 +314,7 @@
                       </p>
                   </div>
               </details>
-                <details open>
+                <details>
                     <summary>🏠 Homepage</summary>
                     <div class="details-content">
                         <p>Mockup view of the app's league/homepage</p>
@@ -231,7 +329,7 @@
                     </div>
                 </details>
 
-                <details open>
+                <details>
                     <summary>Matches and Teams</summary>
                     <div class="details-content">
                         <p>Shows a league's recent matches and all teams</p>
@@ -242,7 +340,7 @@
                     </div>
                 </details>
 
-                <details open>
+                <details>
                     <summary>Match View</summary>
                     <div class="details-content">
                         <div class="image-container">
@@ -251,7 +349,7 @@
                     </div>
                 </details>
 
-                <details open>
+                <details>
                     <summary>Player Touches</summary>
                     <div class="details-content">
                         <p>Ability to view other types of stats such as shooting, passing, etc.</p>
@@ -267,7 +365,7 @@
                     </div>
                 </details>
 
-                <details open>
+                <details>
                     <summary>Player Shots</summary>
                     <div class="details-content">
                         <div class="image-container">
@@ -292,14 +390,14 @@
             <section class="section">
                 <h2 class="section-title">Carry Algorithm</h2>
 
-                <details open>
+                <details>
                     <summary>Introduction and Purpose</summary>
                     <div class="details-content">
                         <p>According to Opta, a carry is defined as "a player moving the ball five metres or more." However, the data I was working with either missed some carries or lacked a carry type altogether. This led me to develop my own method for identifying carries using event data.</p>
                     </div>
                 </details>
 
-                <details open>
+                <details>
                     <summary>Comparison</summary>
                     <div class="details-content">
                         <p><strong>Images showing carries by Marcus Rashford vs. Brentford (Home) in the 2024/25 Premier League season.</strong></p>
@@ -332,7 +430,7 @@
                     </div>
                 </details>
 
-                <details open>
+                <details>
                     <summary>Columbus Crew</summary>
                     <div class="details-content">
                         <p>According to Fbref, Alexandru Mățan ranks in the 99th percentile for progressive carries. Let's take a closer look at his carries (5m minimum) during his hat-trick performance in the Crew's 4-0 win against the New England Revolution in the 2024 season.</p>
@@ -349,7 +447,7 @@
                     </div>
                 </details>
 
-                <details open>
+                <details>
                     <summary>Further Example (Morgan Rogers)</summary>
                     <div class="details-content">
                         <p>Morgan Rogers is renowned for his carrying ability in the Premier League. In a match against Arsenal during the 2024/25 season, he showcased this skill with his two longest carries occurring in the 40th and 60th minutes. Video references for these moments are attached.</p>
@@ -377,6 +475,18 @@
                 </details>
             </section>
         </main>
+    </div>
+    <div id="cookieConsent" class="cookie-consent">
+        <div class="cookie-content">
+            <div>
+                This website uses cookies and Google Analytics to improve user experience and analyze site traffic. 
+                Your data will be anonymous and not shared with third parties.
+            </div>
+            <div class="cookie-buttons">
+                <button onclick="acceptCookies()" class="cookie-btn accept-btn">Accept</button>
+                <button onclick="declineCookies()" class="cookie-btn decline-btn">Decline</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>
