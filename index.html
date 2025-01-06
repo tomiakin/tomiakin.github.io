@@ -1,719 +1,382 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Tomi Akinrinmade’s Portfolio</title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 3px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	padding-inline-start: 0;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-.page-description {
-	margin-bottom: 2em;
-}
-
-.simple-table {
-	margin-top: 1em;
-	font-size: 0.875rem;
-	empty-cells: show;
-}
-.simple-table td {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table th {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table-header-color {
-	background: rgb(247, 246, 243);
-	color: black;
-}
-.simple-table-header {
-	font-weight: 500;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	max-height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code-wrap {
-	white-space: pre-wrap;
-	word-break: break-all;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-	color: rgba(55, 53, 47, 1);
-}
-.highlight-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.highlight-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.highlight-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.highlight-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.highlight-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.highlight-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.highlight-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.highlight-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.highlight-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.highlight-default_background {
-	color: rgba(55, 53, 47, 1);
-}
-.highlight-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.highlight-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.highlight-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.highlight-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.highlight-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.highlight-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.highlight-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.highlight-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.highlight-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.block-color-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.block-color-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.block-color-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.block-color-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.block-color-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.block-color-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.block-color-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.block-color-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.block-color-default_background {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.block-color-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.block-color-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.block-color-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.block-color-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.block-color-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.block-color-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.block-color-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.block-color-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
-.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
-.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
-.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
-.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
-.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
-.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
-.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
-.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
-.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
-.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
-.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
-.select-value-color-pageGlass { background-color: undefined; }
-.select-value-color-washGlass { background-color: undefined; }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="1734f56d-062b-80f0-9be3-dd284dedf776" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">👨🏿‍💻</span></div><h1 class="page-title">Tomi Akinrinmade’s Portfolio</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1734f56d-062b-81e7-9aa9-c90d2b5354b4"><div style="font-size:1.5em"><span class="icon">👉</span></div><div style="width:100%">Hi, I’m a software engineer with a passion for data-driven insights and soccer. This portfolio showcases my work, with a primary focus on the projects I’ve completed in soccer analytics and related fields.</div></figure><p id="1734f56d-062b-81fe-a06f-f2e62216d09f" class="">
-</p><p id="1734f56d-062b-8192-9501-fa1f8c140cb3" class=""><strong>Table of contents</strong></p><nav id="1734f56d-062b-817d-ab5b-e8ebac466baa" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1734f56d-062b-815e-94b2-c0d767be89f0">Statsball (Web Application)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1734f56d-062b-815e-abe1-dd219f7cec4c">Introduction</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1734f56d-062b-815e-abe1-dd219f7cec4c">🏠 Homepage</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1734f56d-062b-8007-8b60-df7c9a7a02d0">Matches and Teams</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1734f56d-062b-800d-87fd-dcfb0c0e3784">Match View</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1734f56d-062b-809b-b7bf-d554e8719fe4">Player Touches </a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1734f56d-062b-8002-82a5-ef7d86490281">Player Shots</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1734f56d-062b-81ea-8425-cd8ae0ab24ff">Carry algorithm</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1734f56d-062b-8156-9453-fa4a996af701">Introduction and Purpose</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1734f56d-062b-81fc-93ea-f5530f9113d3">Comparison</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1734f56d-062b-807e-93cf-db8f6433f962">Columbus Crew</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1734f56d-062b-8037-8adb-f1130effb3d1">Further Example (Morgan Rogers)</a></div></nav><h1 id="1734f56d-062b-815e-94b2-c0d767be89f0" class="">Statsball (Web Application)</h1><hr id="1734f56d-062b-81ec-807c-ee04e9c69330"/><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Introduction</summary><div class="indented"><p id="1734f56d-062b-80ca-beb8-cc824b82efb1" class="">For the Statsball web application project (still ongoing), I designed and built a comprehensive system to collect, process, and visualize football data from various sources. The goal was to create a powerful platform for match analysis and player performance prediction.</p><p>I started by developing a robust ETL pipeline using Django and Python to efficiently integrate data from StatsBomb API, Opta, and other providers. The pipeline handles over 1500 events per match with near-perfect accuracy. To ensure data consistency, I engineered a flexible data model that standardizes diverse event types across sources, allowing for seamless integration of new data feeds.</p><p>One of the key features I implemented is an interactive data visualization module using React and D3.js. This enables users to explore match data through intuitive heatmaps, pass networks, and player movement charts. The visualizations provide valuable insights for real-time match analysis.</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">🏠 Homepage</summary><div class="indented"><p id="1734f56d-062b-81f1-aef2-c8b8ef0dc2f8" class="">Mockup view of the app’s league/homepage</p><p id="1734f56d-062b-80a3-9bb2-c3ddff2ecf9b" class=""><strong>Image A</strong></p><figure id="1734f56d-062b-8026-b4e1-f0d24bbbe06b" class="image"><a href="images/homepage_a.png"><img style="width:680px" src="images/homepage_a.png"/></a></figure><p id="1734f56d-062b-80dd-91f4-fa3be29a0e4f" class="">
-</p><p id="1734f56d-062b-8076-9ff0-ef6657855020" class=""><strong>Image B</strong></p><figure id="1734f56d-062b-806b-b40c-eea28b8a7950" class="image"><a href="images/homepage_b.png"><img style="width:680px" src="images/homepage_b.png"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Matches and Teams</summary><div class="indented"><p id="1734f56d-062b-80d4-aa70-f42de6ca7657" class=""><strong>Image A</strong></p><p id="1734f56d-062b-808c-bfe4-d70d3180ad93" class="">Shows a league’s recent matches and all teams</p><figure id="1734f56d-062b-8000-b3ff-f36a1f5966ab" class="image"><a href="images/matches.png"><img style="width:680px" src="images/matches.png"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Match View</summary><div class="indented"><figure id="1734f56d-062b-8066-b753-f0a54ab6fb97" class="image"><a href="images/matchview.png"><img style="width:680px" src="images/matchview.png"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Player Touches </summary><div class="indented"><p id="8420f5f0-3c49-4005-916c-bae771f80cae" class=""><strong>Image A (General)</strong></p><p id="1734f56d-062b-8014-a0f0-f3294a327c1c" class="">Ability to view other types of stats such as shooting, passing, etc.</p><figure id="1734f56d-062b-8009-be41-c693286b533a" class="image"><a href="images/touches.png"><img style="width:680px" src="images/touches.png"/></a></figure><p id="1734f56d-062b-8062-9fe4-edc810785044" class="">
-</p><p id="1734f56d-062b-8039-ad40-feafe5d64ceb" class=""><strong>Image B (With a selected touch)</strong> </p><p id="1734f56d-062b-80fe-8a2f-d30240e2f847" class="">Puskas nominated volley by Kylian Mbappé to make it 2-2 in the 2022 World cup final.</p><figure id="1734f56d-062b-8017-86bf-c49c4e6dff2f" class="image"><a href="images/selected_touch.png"><img style="width:2880px" src="images/selected_touch.png"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Player Shots</summary><div class="indented"><p id="c032d11f-77cc-4643-8f9a-db07fc1d9916" class=""><strong>Image A</strong></p><p id="1734f56d-062b-80ec-9650-c6d9aad68965" class="">Jamie Vardy&#x27;s stunning volley from outside the box against Liverpool during Leicester City&#x27;s historic 2015/16 title-winning season.</p><figure id="1734f56d-062b-80b6-a2a0-c173d6d92c54" class="image"><a href="images/shot_vardy.png"><img style="width:680px" src="images/shot_vardy.png"/></a></figure><p id="1734f56d-062b-80f5-8aef-f3a92f946cac" class="">
-</p><p id="1734f56d-062b-80b2-98be-e3760ac66239" class=""><strong>Image B</strong></p><p id="1734f56d-062b-807a-a2a8-d30c35ef9f9b" class="">Mbappe’s volley from the 2022 World from earlier (xG and more shot detail shown here)</p><figure id="1734f56d-062b-80d4-b47f-f9c574c104c4" class="image"><a href="images/shot_mbappe.png"><img style="width:680px" src="images/shot_mbappe.png"/></a></figure><p id="1734f56d-062b-8031-ac45-ebd484bdac97" class="">
-</p><p id="1734f56d-062b-806d-a7f9-c57a011ca80c" class=""><strong>Image C (Goal View)</strong></p><p id="1734f56d-062b-8084-b797-d37971031769" class="">All of Mbappé’s shots from the 2022 World Cup Final:</p><p id="1734f56d-062b-80a2-93d4-da6fcdd47203" class="">He successfully converted three penalties—two during regular time and one in the penalty shootout—placing each shot to the left side of the goal.</p><figure id="1734f56d-062b-805a-a606-deb8d08111f2" class="image"><a href="images/shot_goal.png"><img style="width:680px" src="images/shot_goal.png"/></a></figure></div></details><h1 id="1734f56d-062b-81ea-8425-cd8ae0ab24ff" class="">Carry algorithm</h1><hr id="1734f56d-062b-8110-8294-f70e1ecc49e9"/><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Introduction and Purpose</summary><div class="indented"><p id="1734f56d-062b-80ca-beb8-cc824b82efb1" class="">According to Opta, a carry is defined as &quot;a player moving the ball five metres or more.&quot; However, the data I was working with either missed some carries or lacked a carry type altogether. This led me to develop my own method for identifying carries using event data.</p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Comparison</summary><div class="indented"><p id="1734f56d-062b-8020-99c2-e49b0d05805d" class=""><strong>Images showing carries by Marcus Rashford vs. Brentford (Home) in the 2024/25 Premier League season. </strong></p><p id="1734f56d-062b-80d0-8408-dbe3a73460f6" class=""><strong>Only carries exceeding 3m were considered for comparison purposes.</strong></p><p id="1734f56d-062b-80bd-a487-c8167b28d9b6" class="">Using raw event data, I achieved a 100% match rate against both Opta (which uses a 5m limit) and The Athletic. Notably, both The Athletic and Opta missed a carry by Rashford at 88:50, which I verified with video evidence, as shown below. This carry was crucial, culminating in a shot.</p><p id="1734f56d-062b-8010-bbf2-cd042d998e86" class=""><strong>Image A (My method)</strong></p><figure id="1734f56d-062b-809c-83eb-d9da78afbe4a" class="image"><a href="images/rashford.png"><img style="width:679.9921875px" src="images/rashford.png"/></a></figure><p id="1734f56d-062b-80e8-a9ce-e8545c23fc0c" class="">
-</p><p id="1734f56d-062b-8032-a38d-c25a7ae76723" class=""><strong>Image B (The Athletic)</strong></p><p id="1734f56d-062b-8089-b960-cb9d0d9e8dd0" class=""><em>Carries are the dotted lines</em></p><figure id="1734f56d-062b-80b5-88b1-c75451343cae" class="image"><a href="images/athletic.png"><img style="width:2171px" src="images/athletic.png"/></a></figure><p id="1734f56d-062b-8048-b3e3-c4000a81cdbe" class="">
-</p><p id="1734f56d-062b-81f6-835d-d2472ece1a4d" class=""><strong>Image C (Opta)</strong></p><figure id="1734f56d-062b-80b4-aa8c-f2fb3e8375a9" class="image"><a href="images/opta.png"><img style="width:680px" src="images/opta.png"/></a></figure>
-
-</p><p id="1734f56d-062b-80a3-9390-c5de0fae0f59" class=""><strong>Video Evidence - Rashford Carry (88:45-88:50)</strong></p><figure id="1734f56d-062b-8015-8c45-d57535e17eae" class="image">
-<video width="680" controls>
-    <source src="videos/rashford_88.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
-</figure>
-
-
-
-</div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Columbus Crew</summary><div class="indented"><p id="1734f56d-062b-8076-adec-d1b25c2d188e" class="">According to Fbref, Alexandru Mățan ranks in the 99th percentile for progressive carries. Let’s take a closer look at his carries (5m minimum) during his hat-trick performance in the Crew’s 4-0 win against the New England Revolution in the 2024 season.</p><ul id="1734f56d-062b-802c-b71b-cdde099942e8" class="bulleted-list"><li style="list-style-type:disc">One standout carry is a 39.1m run that starts a counterattack, culminating at 28:31.</li></ul><ul id="1734f56d-062b-80ff-938b-cff28b540445" class="bulleted-list"><li style="list-style-type:disc">Another notable carry is a 19.6m run where Mățan chests down a long pass, beats a defender, and slots the ball past the keeper for his second goal. <em>At 63:45</em></li></ul><ul id="1734f56d-062b-8005-984a-ecedf732ea3e" class="bulleted-list"><li style="list-style-type:disc">Finally, he completes his hat trick by running in behind the Revolution defense, carrying the ball 19.8m to the keeper before guiding it into the far post for his third. <em>At 71:45</em></li></ul><figure id="1734f56d-062b-8036-b6a3-e496b4a35638" class="image"><a href="images/matan.png"><img style="width:679.9921875px" src="images/matan.png"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Further Example (Morgan Rogers)</summary><div class="indented"><p id="1734f56d-062b-805a-82ef-ff9af3014d50" class="">Morgan Rogers is renowned for his carrying ability in the Premier League. In a match against Arsenal during the 2024/25 season, he showcased this skill with his two longest carries occurring in the 40th and 60th minutes. Video references for these moments are attached.</p><figure id="1734f56d-062b-804d-a287-d4b4b6080317" class="image"><a href="images/morganrogers.png"><img style="width:679.9921875px" src="images/morganrogers.png"/></a></figure>
-
-</p><p id="1734f56d-062b-80a3-9390-c5de0fae0f59" class=""><strong>Morgan Rogers Carry (40:14-40:23)</strong></p><figure id="1734f56d-062b-8015-8c45-d57535e17eae" class="image">
-	<video width="680" controls>
-		<source src="videos/morganrogers_40.mp4" type="video/mp4">
-		Your browser does not support the video tag.
-	</video>
-	</figure>
-
-</p><p id="1734f56d-062b-80a3-9390-c5de0fae0f59" class=""><strong>Morgan Rogers Carry (60:33-60:48)</strong></p><figure id="1734f56d-062b-8015-8c45-d57535e17eae" class="image">
-	<video width="680" controls>
-		<source src="videos/morganrogers_60.mp4" type="video/mp4">
-		Your browser does not support the video tag.
-	</video>
-	</figure>
-
-
-</div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomi Akinrinmade's Portfolio</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: rgb(55, 53, 47);
+            padding: 16px;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        /* Header styles */
+        .header {
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+
+        /* Introduction callout */
+        .intro-callout {
+            background-color: #f7f6f4;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .intro-callout .icon {
+            font-size: 1.5em;
+        }
+
+        /* Section styles */
+        .section {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            background-color: #f7f6f4;
+            border-radius: 4px;
+        }
+
+        /* Image container */
+        .image-container {
+            margin: 1rem 0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .image-caption {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Text content */
+        p {
+            margin: 1rem 0;
+        }
+
+        /* Lists */
+        ul {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        /* Details/Summary for collapsible sections */
+        details {
+            margin: 1rem 0;
+        }
+
+        summary {
+            cursor: pointer;
+            padding: 0.5rem;
+            background-color: #f7f6f4;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        summary:hover {
+            background-color: #efeeed;
+        }
+
+        details[open] summary {
+            margin-bottom: 1rem;
+        }
+
+        .details-content {
+            padding: 0 1rem;
+        }
+
+        /* Video container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+
+        /* Media queries */
+        @media (max-width: 768px) {
+            .container {
+                padding: 8px;
+            }
+
+            .page-title {
+                font-size: 1.75rem;
+            }
+
+            .section-title {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 8px;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .details-content {
+                padding: 0 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div style="font-size: 3rem;">👨🏿‍💻</div>
+            <h1 class="page-title">Tomi Akinrinmade's Portfolio</h1>
+            <div class="intro-callout">
+                <span class="icon">👉</span>
+                <div>
+                    Hi, I'm a software engineer with a passion for data-driven insights and soccer. 
+                    This portfolio showcases my work, with a primary focus on the projects 
+                    I've completed in soccer analytics and related fields.
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Statsball Section -->
+            <section class="section">
+                <h2 class="section-title">Statsball</h2>
+                <details open>
+                  <summary>Introduction</summary>
+                  <div class="details-content">
+                      <p>
+                          Statsball is a web application project (still ongoing), I designed and built 
+                          a comprehensive system to collect, process, and visualize football data from 
+                          various sources. The goal was to create a powerful platform for match analysis 
+                          and player performance prediction.
+                      </p>
+                      <p>
+                          I started by developing a robust ETL pipeline using Django and Python to efficiently 
+                          integrate data from StatsBomb API, Opta, and other providers. The pipeline handles 
+                          over 1500 events per match with near-perfect accuracy. To ensure data consistency, 
+                          I engineered a flexible data model that standardizes diverse event types across 
+                          sources, allowing for seamless integration of new data feeds.
+                      </p>
+                      <p>
+                          One of the key features I implemented is an interactive data visualization module 
+                          using React and D3.js. This enables users to explore match data through intuitive 
+                          heatmaps, pass networks, and player movement charts. The visualizations provide 
+                          valuable insights for real-time match analysis.
+                      </p>
+                  </div>
+              </details>
+                <details open>
+                    <summary>🏠 Homepage</summary>
+                    <div class="details-content">
+                        <p>Mockup view of the app's league/homepage</p>
+                        <div class="image-container">
+                            <img src="images/homepage_a.png" alt="Homepage view A">
+                            <p class="image-caption"><strong>Image A</strong></p>
+                        </div>
+                        <div class="image-container">
+                            <img src="images/homepage_b.png" alt="Homepage view B">
+                            <p class="image-caption"><strong>Image B</strong></p>
+                        </div>
+                    </div>
+                </details>
+
+                <details open>
+                    <summary>Matches and Teams</summary>
+                    <div class="details-content">
+                        <p>Shows a league's recent matches and all teams</p>
+                        <div class="image-container">
+                            <img src="images/matches.png" alt="Matches and Teams">
+                            <p class="image-caption"><strong>Image A</strong> - League matches and teams overview</p>
+                        </div>
+                    </div>
+                </details>
+
+                <details open>
+                    <summary>Match View</summary>
+                    <div class="details-content">
+                        <div class="image-container">
+                            <img src="images/matchview.png" alt="Match View">
+                        </div>
+                    </div>
+                </details>
+
+                <details open>
+                    <summary>Player Touches</summary>
+                    <div class="details-content">
+                        <p>Ability to view other types of stats such as shooting, passing, etc.</p>
+                        <div class="image-container">
+                            <img src="images/touches.png" alt="Player Touches">
+                            <p class="image-caption"><strong>Image A (General)</strong></p>
+                        </div>
+                        
+                        <div class="image-container">
+                            <img src="images/selected_touch.png" alt="Selected Touch">
+                            <p class="image-caption"><strong>Image B (With a selected touch)</strong> - Puskas nominated volley by Kylian Mbappé to make it 2-2 in the 2022 World cup final.</p>
+                        </div>
+                    </div>
+                </details>
+
+                <details open>
+                    <summary>Player Shots</summary>
+                    <div class="details-content">
+                        <div class="image-container">
+                            <img src="images/shot_vardy.png" alt="Vardy Shot">
+                            <p class="image-caption"><strong>Image A</strong> - Jamie Vardy's stunning volley from outside the box against Liverpool during Leicester City's historic 2015/16 title-winning season.</p>
+                        </div>
+
+                        <div class="image-container">
+                            <img src="images/shot_mbappe.png" alt="Mbappe Shot">
+                            <p class="image-caption"><strong>Image B</strong> - Mbappe's volley from the 2022 World Cup (xG and more shot detail shown here)</p>
+                        </div>
+
+                        <div class="image-container">
+                            <img src="images/shot_goal.png" alt="Goal View">
+                            <p class="image-caption"><strong>Image C (Goal View)</strong> - All of Mbappé's shots from the 2022 World Cup Final. He successfully converted three penalties—two during regular time and one in the penalty shootout—placing each shot to the left side of the goal.</p>
+                        </div>
+                    </div>
+                </details>
+            </section>
+
+            <!-- Carry Algorithm Section -->
+            <section class="section">
+                <h2 class="section-title">Carry Algorithm</h2>
+
+                <details open>
+                    <summary>Introduction and Purpose</summary>
+                    <div class="details-content">
+                        <p>According to Opta, a carry is defined as "a player moving the ball five metres or more." However, the data I was working with either missed some carries or lacked a carry type altogether. This led me to develop my own method for identifying carries using event data.</p>
+                    </div>
+                </details>
+
+                <details open>
+                    <summary>Comparison</summary>
+                    <div class="details-content">
+                        <p><strong>Images showing carries by Marcus Rashford vs. Brentford (Home) in the 2024/25 Premier League season.</strong></p>
+                        <p><strong>Only carries exceeding 3m were considered for comparison purposes.</strong></p>
+                        
+                        <p>Using raw event data, I achieved a 100% match rate against both Opta (which uses a 5m limit) and The Athletic. Notably, both The Athletic and Opta missed a carry by Rashford at 88:50, which I verified with video evidence, as shown below. This carry was crucial, culminating in a shot.</p>
+
+                        <div class="image-container">
+                            <img src="images/rashford.png" alt="Rashford Carries">
+                            <p class="image-caption"><strong>Image A (My method)</strong></p>
+                        </div>
+
+                        <div class="image-container">
+                            <img src="images/athletic.png" alt="The Athletic Visualization">
+                            <p class="image-caption"><strong>Image B (The Athletic)</strong> - Carries are the dotted lines</p>
+                        </div>
+
+                        <div class="image-container">
+                            <img src="images/opta.png" alt="Opta Visualization">
+                            <p class="image-caption"><strong>Image C (Opta)</strong></p>
+                        </div>
+
+                        <p><strong>Video Evidence - Rashford Carry (88:50)</strong></p>
+                        <div class="video-container">
+                            <video controls>
+                                <source src="videos/rashford_88.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </details>
+
+                <details open>
+                    <summary>Columbus Crew</summary>
+                    <div class="details-content">
+                        <p>According to Fbref, Alexandru Mățan ranks in the 99th percentile for progressive carries. Let's take a closer look at his carries (5m minimum) during his hat-trick performance in the Crew's 4-0 win against the New England Revolution in the 2024 season.</p>
+                        
+                        <ul>
+                            <li>One standout carry is a 39.1m run that starts a counterattack, culminating at 28:31.</li>
+                            <li>Another notable carry is a 19.6m run where Mățan chests down a long pass, beats a defender, and slots the ball past the keeper for his second goal. <em>At 63:45</em></li>
+                            <li>Finally, he completes his hat trick by running in behind the Revolution defense, carrying the ball 19.8m to the keeper before guiding it into the far post for his third. <em>At 71:45</em></li>
+                        </ul>
+
+                        <div class="image-container">
+                            <img src="images/matan.png" alt="Matan Carries">
+                        </div>
+                    </div>
+                </details>
+
+                <details open>
+                    <summary>Further Example (Morgan Rogers)</summary>
+                    <div class="details-content">
+                        <p>Morgan Rogers is renowned for his carrying ability in the Premier League. In a match against Arsenal during the 2024/25 season, he showcased this skill with his two longest carries occurring in the 40th and 60th minutes. Video references for these moments are attached.</p>
+
+                        <div class="image-container">
+                            <img src="images/morganrogers.png" alt="Morgan Rogers Carries">
+                        </div>
+
+                        <p><strong>Morgan Rogers Carry (40:14-40:23)</strong></p>
+                        <div class="video-container">
+                            <video controls>
+                                <source src="videos/morganrogers_40.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+
+                        <p><strong>Morgan Rogers Carry (60:33-60:48)</strong></p>
+                        <div class="video-container">
+                            <video controls>
+                                <source src="videos/morganrogers_60.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </details>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

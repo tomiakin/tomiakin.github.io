@@ -1,223 +1,382 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>Tomi Akinrinmade's Portfolio</title>
-  <style>
-    /* Base styles */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #fff;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomi Akinrinmade's Portfolio</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* Main content container */
-    .page {
-      max-width: 900px;
-      margin: 2em auto;
-      padding: 0 2em;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: rgb(55, 53, 47);
+            padding: 16px;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
 
-    /* Header styling */
-    .page-header-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 16px;
+        }
 
-    .page-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin: 0.5em 0;
-      color: #2d3748;
-      text-align: center;
-    }
+        /* Header styles */
+        .header {
+            margin-bottom: 2rem;
+        }
 
-    /* Introduction callout */
-    .callout {
-      background: #f7fafc;
-      border-radius: 8px;
-      padding: 1.5em;
-      margin: 2em 0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
 
-    /* Table of contents */
-    .table_of_contents {
-      background: #f8f9fa;
-      padding: 1.5em;
-      border-radius: 8px;
-      margin: 2em 0;
-    }
+        /* Introduction callout */
+        .intro-callout {
+            background-color: #f7f6f4;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
 
-    .table_of_contents-item {
-      margin: 0.5em 0;
-    }
+        .intro-callout .icon {
+            font-size: 1.5em;
+        }
 
-    .table_of_contents-indent-0 { margin-left: 0; }
-    .table_of_contents-indent-1 { margin-left: 1.5em; }
+        /* Section styles */
+        .section {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 2rem;
+        }
 
-    .table_of_contents-link {
-      color: #4a5568;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            background-color: #f7f6f4;
+            border-radius: 4px;
+        }
 
-    .table_of_contents-link:hover {
-      color: #2b6cb0;
-    }
+        /* Image container */
+        .image-container {
+            margin: 1rem 0;
+        }
 
-    /* Section styling */
-    details {
-      margin: 1.5em 0;
-    }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
 
-    summary {
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 1.25em;
-      color: #2d3748;
-      padding: 0.5em 0;
-    }
+        .image-caption {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
 
-    .indented {
-      margin-left: 1.5em;
-      padding: 0.5em 0;
-    }
+        /* Text content */
+        p {
+            margin: 1rem 0;
+        }
 
-    /* Image and figure styling */
-    .image {
-      margin: 1.5em 0;
-      border-radius: 8px;
-      overflow: hidden;
-    }
+        /* Lists */
+        ul {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
 
-    .image img, .image video {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
+        /* Details/Summary for collapsible sections */
+        details {
+            margin: 1rem 0;
+        }
 
-    /* List styling */
-    .bulleted-list {
-      padding-left: 1.5em;
-    }
+        summary {
+            cursor: pointer;
+            padding: 0.5rem;
+            background-color: #f7f6f4;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
 
-    .bulleted-list li {
-      margin: 0.5em 0;
-    }
+        summary:hover {
+            background-color: #efeeed;
+        }
 
-    /* Text styling */
-    strong {
-      color: #2d3748;
-    }
+        details[open] summary {
+            margin-bottom: 1rem;
+        }
 
-    em {
-      color: #4a5568;
-    }
+        .details-content {
+            padding: 0 1rem;
+        }
 
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .page {
-        padding: 0 1em;
-        margin: 1em auto;
-      }
+        /* Video container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
 
-      .page-title {
-        font-size: 2rem;
-      }
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
 
-      .indented {
-        margin-left: 0.75em;
-      }
-    }
-  </style>
+        /* Media queries */
+        @media (max-width: 768px) {
+            .container {
+                padding: 8px;
+            }
+
+            .page-title {
+                font-size: 1.75rem;
+            }
+
+            .section-title {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 8px;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .details-content {
+                padding: 0 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <article id="1734f56d-062b-80f0-9be3-dd284dedf776" class="page sans">
-    <header>
-      <div class="page-header-icon undefined">
-        <span class="icon">👨🏿‍💻</span>
-      </div>
-      <h1 class="page-title">Tomi Akinrinmade's Portfolio</h1>
-      <p class="page-description"></p>
-    </header>
-    <div class="page-body">
-      <figure class="block-color-gray_background callout" 
-              style="white-space: pre-wrap; display: flex" 
-              id="1734f56d-062b-81e7-9aa9-c90d2b5354b4">
-        <div style="font-size: 1.5em">
-          <span class="icon">👉</span>
-        </div>
-        <div style="width: 100%">
-          Hi, I'm a software engineer with a passion for data-driven insights
-          and soccer. This portfolio showcases my work, with a primary focus
-          on the projects I've completed in soccer analytics and related
-          fields.
-        </div>
-      </figure>
+    <div class="container">
+        <header class="header">
+            <div style="font-size: 3rem;">👨🏿‍💻</div>
+            <h1 class="page-title">Tomi Akinrinmade's Portfolio</h1>
+            <div class="intro-callout">
+                <span class="icon">👉</span>
+                <div>
+                    Hi, I'm a software engineer with a passion for data-driven insights and soccer. 
+                    This portfolio showcases my work, with a primary focus on the projects 
+                    I've completed in soccer analytics and related fields.
+                </div>
+            </div>
+        </header>
 
-      <p id="1734f56d-062b-8192-9501-fa1f8c140cb3" class="">
-        <strong>Table of contents</strong>
-      </p>
-      <nav id="1734f56d-062b-817d-ab5b-e8ebac466baa" class="block-color-gray table_of_contents">
-        <div class="table_of_contents-item table_of_contents-indent-0">
-          <a class="table_of_contents-link" href="#1734f56d-062b-815e-94b2-c0d767be89f0">
-            Statsball
-          </a>
-        </div>
-        <div class="table_of_contents-item table_of_contents-indent-1">
-          <a class="table_of_contents-link" href="#1734f56d-062b-815e-abe1-dd219f7cec4c">
-            🏠 Homepage
-          </a>
-        </div>
-        <div class="table_of_contents-item table_of_contents-indent-1">
-          <a class="table_of_contents-link" href="#1734f56d-062b-8007-8b60-df7c9a7a02d0">
-            Matches and Teams
-          </a>
-        </div>
-        <div class="table_of_contents-item table_of_contents-indent-1">
-          <a class="table_of_contents-link" href="#1734f56d-062b-800d-87fd-dcfb0c0e3784">
-            Match View
-          </a>
-        </div>
-        <div class="table_of_contents-item table_of_contents-indent-1">
-          <a class="table_of_contents-link" href="#1734f56d-062b-809b-b7bf-d554e8719fe4">
-            Player Touches
-          </a>
-        </div>
-        <div class="table_of_contents-item table_of_contents-indent-1">
-          <a class="table_of_contents-link" href="#1734f56d-062b-8002-82a5-ef7d86490281">
-            Player Shots
-          </a>
-        </div>
-        <div class="table_of_contents-item table_of_contents-indent-0">
-          <a class="table_of_contents-link" href="#1734f56d-062b-81ea-8425-cd8ae0ab24ff">
-            Carry algorithm
-          </a>
-        </div>
-        <div class="table_of_contents-item table_of_contents-indent-1">
-          <a class="table_of_contents-link" href="#1734f56d-062b-8156-9453-fa4a996af701">
-            Introduction and Purpose
-          </a>
-        </div>
-        <div class="table_of_contents-item table_of_contents-indent-1">
-          <a class="table_of_contents-link" href="#1734f56d-062b-81fc-93ea-f5530f9113d3">
-            Comparison
-          </a>
-        </div>
-        <div class="table_of_contents-item table_of_contents-indent-1">
-          <a class="table_of_contents-link" href="#1734f56d-062b-807e-93cf-db8f6433f962">
-            Columbus Crew
-          </a>
-        </div>
-        <div class="table_of_contents-item table_of_contents-indent-1">
-          <a class="table_of_contents-link" href="#1734f56d-062b-8037-8adb-f1130effb3d1">
-            Further Example
-          </a>
-        </div>
-      </nav>
+        <main>
+            <!-- Statsball Section -->
+            <section class="section">
+                <h2 class="section-title">Statsball</h2>
+                <details open>
+                  <summary>Introduction</summary>
+                  <div class="details-content">
+                      <p>
+                          Statsball is a web application project (still ongoing), I designed and built 
+                          a comprehensive system to collect, process, and visualize football data from 
+                          various sources. The goal was to create a powerful platform for match analysis 
+                          and player performance prediction.
+                      </p>
+                      <p>
+                          I started by developing a robust ETL pipeline using Django and Python to efficiently 
+                          integrate data from StatsBomb API, Opta, and other providers. The pipeline handles 
+                          over 1500 events per match with near-perfect accuracy. To ensure data consistency, 
+                          I engineered a flexible data model that standardizes diverse event types across 
+                          sources, allowing for seamless integration of new data feeds.
+                      </p>
+                      <p>
+                          One of the key features I implemented is an interactive data visualization module 
+                          using React and D3.js. This enables users to explore match data through intuitive 
+                          heatmaps, pass networks, and player movement charts. The visualizations provide 
+                          valuable insights for real-time match analysis.
+                      </p>
+                  </div>
+              </details>
+                <details open>
+                    <summary>🏠 Homepage</summary>
+                    <div class="details-content">
+                        <p>Mockup view of the app's league/homepage</p>
+                        <div class="image-container">
+                            <img src="images/homepage_a.png" alt="Homepage view A">
+                            <p class="image-caption"><strong>Image A</strong></p>
+                        </div>
+                        <div class="image-container">
+                            <img src="images/homepage_b.png" alt="Homepage view B">
+                            <p class="image-caption"><strong>Image B</strong></p>
+                        </div>
+                    </div>
+                </details>
+
+                <details open>
+                    <summary>Matches and Teams</summary>
+                    <div class="details-content">
+                        <p>Shows a league's recent matches and all teams</p>
+                        <div class="image-container">
+                            <img src="images/matches.png" alt="Matches and Teams">
+                            <p class="image-caption"><strong>Image A</strong> - League matches and teams overview</p>
+                        </div>
+                    </div>
+                </details>
+
+                <details open>
+                    <summary>Match View</summary>
+                    <div class="details-content">
+                        <div class="image-container">
+                            <img src="images/matchview.png" alt="Match View">
+                        </div>
+                    </div>
+                </details>
+
+                <details open>
+                    <summary>Player Touches</summary>
+                    <div class="details-content">
+                        <p>Ability to view other types of stats such as shooting, passing, etc.</p>
+                        <div class="image-container">
+                            <img src="images/touches.png" alt="Player Touches">
+                            <p class="image-caption"><strong>Image A (General)</strong></p>
+                        </div>
+                        
+                        <div class="image-container">
+                            <img src="images/selected_touch.png" alt="Selected Touch">
+                            <p class="image-caption"><strong>Image B (With a selected touch)</strong> - Puskas nominated volley by Kylian Mbappé to make it 2-2 in the 2022 World cup final.</p>
+                        </div>
+                    </div>
+                </details>
+
+                <details open>
+                    <summary>Player Shots</summary>
+                    <div class="details-content">
+                        <div class="image-container">
+                            <img src="images/shot_vardy.png" alt="Vardy Shot">
+                            <p class="image-caption"><strong>Image A</strong> - Jamie Vardy's stunning volley from outside the box against Liverpool during Leicester City's historic 2015/16 title-winning season.</p>
+                        </div>
+
+                        <div class="image-container">
+                            <img src="images/shot_mbappe.png" alt="Mbappe Shot">
+                            <p class="image-caption"><strong>Image B</strong> - Mbappe's volley from the 2022 World Cup (xG and more shot detail shown here)</p>
+                        </div>
+
+                        <div class="image-container">
+                            <img src="images/shot_goal.png" alt="Goal View">
+                            <p class="image-caption"><strong>Image C (Goal View)</strong> - All of Mbappé's shots from the 2022 World Cup Final. He successfully converted three penalties—two during regular time and one in the penalty shootout—placing each shot to the left side of the goal.</p>
+                        </div>
+                    </div>
+                </details>
+            </section>
+
+            <!-- Carry Algorithm Section -->
+            <section class="section">
+                <h2 class="section-title">Carry Algorithm</h2>
+
+                <details open>
+                    <summary>Introduction and Purpose</summary>
+                    <div class="details-content">
+                        <p>According to Opta, a carry is defined as "a player moving the ball five metres or more." However, the data I was working with either missed some carries or lacked a carry type altogether. This led me to develop my own method for identifying carries using event data.</p>
+                    </div>
+                </details>
+
+                <details open>
+                    <summary>Comparison</summary>
+                    <div class="details-content">
+                        <p><strong>Images showing carries by Marcus Rashford vs. Brentford (Home) in the 2024/25 Premier League season.</strong></p>
+                        <p><strong>Only carries exceeding 3m were considered for comparison purposes.</strong></p>
+                        
+                        <p>Using raw event data, I achieved a 100% match rate against both Opta (which uses a 5m limit) and The Athletic. Notably, both The Athletic and Opta missed a carry by Rashford at 88:50, which I verified with video evidence, as shown below. This carry was crucial, culminating in a shot.</p>
+
+                        <div class="image-container">
+                            <img src="images/rashford.png" alt="Rashford Carries">
+                            <p class="image-caption"><strong>Image A (My method)</strong></p>
+                        </div>
+
+                        <div class="image-container">
+                            <img src="images/athletic.png" alt="The Athletic Visualization">
+                            <p class="image-caption"><strong>Image B (The Athletic)</strong> - Carries are the dotted lines</p>
+                        </div>
+
+                        <div class="image-container">
+                            <img src="images/opta.png" alt="Opta Visualization">
+                            <p class="image-caption"><strong>Image C (Opta)</strong></p>
+                        </div>
+
+                        <p><strong>Video Evidence - Rashford Carry (88:50)</strong></p>
+                        <div class="video-container">
+                            <video controls>
+                                <source src="videos/rashford_88.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </details>
+
+                <details open>
+                    <summary>Columbus Crew</summary>
+                    <div class="details-content">
+                        <p>According to Fbref, Alexandru Mățan ranks in the 99th percentile for progressive carries. Let's take a closer look at his carries (5m minimum) during his hat-trick performance in the Crew's 4-0 win against the New England Revolution in the 2024 season.</p>
+                        
+                        <ul>
+                            <li>One standout carry is a 39.1m run that starts a counterattack, culminating at 28:31.</li>
+                            <li>Another notable carry is a 19.6m run where Mățan chests down a long pass, beats a defender, and slots the ball past the keeper for his second goal. <em>At 63:45</em></li>
+                            <li>Finally, he completes his hat trick by running in behind the Revolution defense, carrying the ball 19.8m to the keeper before guiding it into the far post for his third. <em>At 71:45</em></li>
+                        </ul>
+
+                        <div class="image-container">
+                            <img src="images/matan.png" alt="Matan Carries">
+                        </div>
+                    </div>
+                </details>
+
+                <details open>
+                    <summary>Further Example (Morgan Rogers)</summary>
+                    <div class="details-content">
+                        <p>Morgan Rogers is renowned for his carrying ability in the Premier League. In a match against Arsenal during the 2024/25 season, he showcased this skill with his two longest carries occurring in the 40th and 60th minutes. Video references for these moments are attached.</p>
+
+                        <div class="image-container">
+                            <img src="images/morganrogers.png" alt="Morgan Rogers Carries">
+                        </div>
+
+                        <p><strong>Morgan Rogers Carry (40:14-40:23)</strong></p>
+                        <div class="video-container">
+                            <video controls>
+                                <source src="videos/morganrogers_40.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+
+                        <p><strong>Morgan Rogers Carry (60:33-60:48)</strong></p>
+                        <div class="video-container">
+                            <video controls>
+                                <source src="videos/morganrogers_60.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </details>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
